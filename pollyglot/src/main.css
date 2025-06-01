@@ -1,0 +1,109 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.5;
+}
+
+header {
+  height: 25%;
+  background-image: url("/assets/worldmap.png");
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+h1 {
+  color: #32cd32;
+  font-family: "Big Shoulders", sans-serif;
+  font-size: 2.8946rem;
+  font-style: normal;
+  font-weight: 800;
+}
+header img {
+  width: 100px;
+}
+header .text {
+  color: white;
+  font-size: 0.81413rem;
+  font-weight: 600;
+}
+
+main {
+  height: 75%;
+  padding: 1.5rem 1rem 0 1rem;
+  overflow-y: scroll;
+}
+form {
+  position: fixed;
+  bottom: 0;
+  width: calc(100% - 2rem);
+  background-color: white;
+}
+form input {
+  border-radius: 0.66667rem;
+  border: 1.5px solid #586e88;
+  background: #f5f5f5;
+  width: 100%;
+  padding: 1rem;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+.submit {
+  border: none;
+  background: transparent;
+  position: absolute;
+  right: 1rem;
+  top: 1.7rem;
+}
+.submit svg {
+  stroke-width: 2.532px;
+  stroke: #32cd32;
+}
+
+/* Flags */
+input[type="radio"] {
+  display: none;
+}
+
+.languages {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+label img {
+  width: 50px;
+  padding: 0 8px;
+}
+input[type="radio"]:checked + label,
+label:has(input[type="radio"]:checked) {
+  border: 2px solid #32cd32;
+}
+
+/* Messages */
+.message {
+  color: #fff;
+  font-weight: 600;
+  line-height: 130%;
+  margin: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+.assistant {
+    background-color: #586e88;
+    border-top-right-radius: 0;
+}
+.user {
+    background-color: #32cd32;
+    border-top-left-radius: 0;
+}

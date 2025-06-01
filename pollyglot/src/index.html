@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Security: Prevent MIME type sniffing -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <!-- Security: Enable XSS protection -->
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <!-- Security: Control referrer information -->
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <title>PollyGot</title>
+    <link rel="stylesheet" href="/main.css" />
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <img src="/assets/parrot.png" alt="parrot icon" />
+      <div>
+        <h1>PollyGot</h1>
+        <p class="text">Perfect Translation Every Time</p>
+      </div>
+    </header>
+
+    <main>
+      <div class="messages" id="messages">
+        <div class="assistant message">
+          Select the language you want me to translate into, type your text and
+          hit send!
+        </div>
+      </div>
+
+      <form id="form">
+        <input
+          id="prompt"
+          name="message"
+          type="text"
+          required
+          maxlength="50"
+          placeholder="Enter text to translate..."
+          autocomplete="off"
+        />
+        <button type="submit" class="submit">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="27"
+            height="27"
+            viewBox="0 0 27 27"
+            fill="none"
+          >
+            <path
+              d="M4.53199 13.3943L1.99992 24.7887L24.7886 13.3943L1.99992 2L4.53199 13.3943ZM4.53199 13.3943L14.6603 13.3943"
+              stroke="#32CD32"
+              stroke-width="2.53207"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </button>
+        <div class="languages">
+          <label for="hindi">
+            <input
+              type="radio"
+              value="hindi"
+              id="hindi"
+              name="language"
+              checked
+            />
+            <img src="/assets/india.png" alt="Hindi" />
+          </label>
+          <label for="japanese">
+            <input
+              type="radio"
+              value="japanese"
+              id="japanese"
+              name="language"
+            />
+            <img src="/assets/japanese.png" alt="japanese" />
+          </label>
+          <label for="russian">
+            <input type="radio" value="russian" id="russian" name="language" />
+            <img src="/assets/russia.png" alt="Russian" />
+          </label>
+        </div>
+      </form>
+    </main>
+
+    <script src="/main.js" type="module"></script>
+  </body>
+</html>
