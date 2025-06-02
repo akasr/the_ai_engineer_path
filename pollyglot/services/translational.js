@@ -1,4 +1,5 @@
 import together from '../together.config.js';
+import sanitizeHtml from 'sanitize-html';
 
 function validateTranslationInput(message, language) {
   if (!message || typeof message !== "string" || message.trim().length === 0) {
@@ -24,11 +25,10 @@ function validateTranslationInput(message, language) {
 // Security: Sanitize message to prevent injection attacks
 function sanitizeMessage(message) {
   // Remove potentially harmful patterns
-  return message
-    .replace(/<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi, "") // Remove script tags
-    .replace(/javascript:/gi, "") // Remove javascript: protocols
-    .replace(/on\w+\s*=/gi, "") // Remove event handlers
-    .trim();
+  return sanitizeHtml(message, {
+    allowedTags: [],
+    allowedAttributes: {}
+  });
 }
 
 export default async function translational(message, language) {
