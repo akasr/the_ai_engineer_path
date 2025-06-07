@@ -46,3 +46,5 @@ A minimal, secure web app for translating short messages into Hindi, Russian, or
 ## License
 
 This project is part of the solo project of the Scrimba course - *The AI Engineer Path*.
+
+[↩ Back](/the_ai_engineer_path/)

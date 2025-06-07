@@ -12,3 +12,5 @@ Below are the solo projects completed as part of the course. Each project demons
 ## License
 
 This repository is for educational purposes as part of the Scrimba AI Engineer Path.
+
+[↩ Back](/)
