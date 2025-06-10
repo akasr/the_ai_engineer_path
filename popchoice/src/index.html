@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
     <title>PopChoice</title>
     <link rel="stylesheet" href="main.css" />
 
@@ -39,8 +42,8 @@
           class="input"
           placeholder="How much time do you have?"
         />
-      </form>
       <button class="btn" id="start-btn" type="submit">Start</button>
+      </form>
     </template>
 
     <template id="preference">
@@ -91,7 +94,7 @@ Because it taught me to never give up hope no matter how hard life gets"
               <input
                 type="radio"
                 id="fun"
-                name="mood"
+                name="genre"
                 value="fun"
                 required
               />
@@ -101,7 +104,7 @@ Because it taught me to never give up hope no matter how hard life gets"
               <input
                 type="radio"
                 id="serious"
-                name="mood"
+                name="genre"
                 value="serious"
               />
               Serious
@@ -110,7 +113,7 @@ Because it taught me to never give up hope no matter how hard life gets"
               <input
                 type="radio"
                 id="inspiring"
-                name="mood"
+                name="genre"
                 value="inspiring"
                 required
               />
@@ -120,7 +123,7 @@ Because it taught me to never give up hope no matter how hard life gets"
               <input
                 type="radio"
                 id="scary"
-                name="mood"
+                name="genre"
                 value="scary"
               />
               Scary
