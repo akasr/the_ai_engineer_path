@@ -1,13 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PopChoice</title>
-  <link rel="stylesheet" href="main.css" />
-</head>
-<body>
-  <h1>PopChoice</h1>
-  <script type="module" src="main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PopChoice</title>
+    <link rel="stylesheet" href="main.css" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Carter+One&family=Roboto+Slab:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <template id="start">
+      <img src="/assets/popcorn.png" alt="logo" class="logo" />
+      <h1 class="title">PopChoice</h1>
+      <form class="meta-form" id="meta-form">
+        <label for="people" class="sr-only">Number of People</label>
+        <input
+          type="number"
+          id="people"
+          name="people"
+          placeholder="How many people?"
+          min="1"
+          required
+          class="input"
+        />
+
+        <label for="time" class="sr-only">Time Available</label>
+        <input
+          type="text"
+          id="time"
+          name="time"
+          required
+          class="input"
+          placeholder="How much time do you have?"
+        />
+      </form>
+      <button class="btn" id="start-btn" type="submit">Start</button>
+    </template>
+
+    <template id="preference">
+      <img src="/assets/popcorn.png" alt="logo" class="logo" />
+      <h1 class="title" id="count">1</h1>
+      <form class="preference-form" id="preference-form">
+        <div class="label"
+          >What's your favorite movie and why?
+          <textarea
+            id="favorite"
+            name="favorite"
+            rows="3"
+            placeholder="The Shawshank Redemption
+Because it taught me to never give up hope no matter how hard life gets"
+            required
+            class="input"
+          ></textarea>
+        </div>
+
+        <div class="label">
+          Are you in the mood for something new or a classic?
+          <div class="radio-group">
+            <label for="new" class="radio-label">
+              <input
+                type="radio"
+                id="new"
+                name="mood"
+                value="new"
+                required
+              />
+              New
+            </label>
+            <label for="classic" class="radio-label">
+              <input
+                type="radio"
+                id="classic"
+                name="mood"
+                value="classic"
+              />
+              Classic
+            </label>
+        </div>
+
+        <div class="label">
+          What are you in the mood for?
+          <div class="radio-group">
+            <label for="fun" class="radio-label">
+              <input
+                type="radio"
+                id="fun"
+                name="mood"
+                value="fun"
+                required
+              />
+              Fun
+            </label>
+            <label for="serious" class="radio-label">
+              <input
+                type="radio"
+                id="serious"
+                name="mood"
+                value="serious"
+              />
+              Serious
+            </label>
+            <label for="inspiring" class="radio-label">
+              <input
+                type="radio"
+                id="inspiring"
+                name="mood"
+                value="inspiring"
+                required
+              />
+              Inspiring
+            </label>
+            <label for="scary" class="radio-label">
+              <input
+                type="radio"
+                id="scary"
+                name="mood"
+                value="scary"
+              />
+              Scary
+            </label>
+        </div>
+
+        <div class="label"
+          >Which famous film person would you love to be stranded on an island with and why?
+          <textarea
+            id="island"
+            name="island"
+            rows="2"
+            placeholder="Tom Hanks because he is really funny and can do the voice of Woody"
+            required
+            class="input"
+          ></textarea>
+        </div>
+        <button class="btn" id="preference-btn" type="submit">Next Person</button>
+      </form>
+    </template>
+
+    <template id="movie">
+      <h1 class="title">Your Movie</h1>
+      <div class="poster" id="poster"></div>
+      <p class="description" id="description">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dignissimos suscipit provident, fugit quibusdam ad illum! Earum, corporis corrupti possimus nam quasi velit, neque, hic dolor nemo ut consectetur eum repellat?</p>
+      <button class="btn" id="next-btn">Next Movie</button>
+    </template>
+
+    <script type="module" src="main.js"></script>
+  </body>
 </html>

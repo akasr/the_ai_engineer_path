@@ -1,10 +1,189 @@
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-body {
-  background-color: black;
+.start,
+.preference,
+.movie {
+  background-color: #000c36;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* Start Page */
+.start {
+  width: 100%;
+  text-align: center;
+}
+img.logo {
+  width: 6.6rem;
+  height: 7.2rem;
+}
+h1.title {
+  color: #fff;
+  font-size: 3rem;
+}
+.start h1.title {
+  font-family: 'Carter One', system-ui;
+}
+label.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+form {
+  width: 100%;
+}
+.input,
+.btn {
+  display: block;
+  margin: 1rem auto;
+  color: #000c36;
+  font-family: 'Roboto Slab';
+  border: none;
+  border-radius: 10px;
+  background: #3b4877;
+  border: none;
+}
+.start input.input,
+.btn {
+  width: 80%;
+  height: 4rem;
   color: white;
+  text-align: center;
+  font-size: 1.2rem;
+}
+.input.input::placeholder {
+  color: #000c36;
+  font-weight: 300;
+}
+/* Hide number input spin buttons for Chrome, Safari, Edge, Opera */
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Hide number input spin buttons for Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+.btn {
+  cursor: pointer;
+  background-color: #51e08a;
+  font-weight: 700;
+  font-size: 1.88rem;
+  color: #000c36;
+}
+
+/* Preference Page */
+.preference {
+  font-family: 'Roboto Slab';
+  color: white;
+}
+.preference .logo {
+  display: block;
+  margin: 0 auto;
+}
+.preference h1.title {
+  font-size: 3.33333rem;
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.preference form {
+  padding: 0 10%;
+}
+.preference .label {
+  margin: 2rem 0;
+}
+.preference .input {
+  font-size: 0.93333rem;
+  font-weight: 300;
+  width: 100%;
+  color: #fff;
+  padding: 1rem;
+}
+.preference .input::-webkit-resizer {
+  display: none;
+}
+.preference .input::placeholder {
+  text-wrap: wrap;
+  color: #fff;
+  font-size: 0.93333rem;
+  font-weight: 300;
+}
+.preference .radio-group {
+  font-size: 0.93333rem;
+  margin: 1rem 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.preference .radio-group label {
+  cursor: pointer;
+  color: #fff;
+  background-color: #3b4877;
+  padding: 2px 1rem;
+  border-radius: 5px;
+  font-weight: 300;
+  font-size: 0.93333rem;
+}
+.preference input[type='radio'] {
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+}
+.preference label:has(input[type='radio']:checked) {
+  background-color: #51e08a;
+  color: #000c36;
+}
+.preference .btn {
+  margin: 2rem 0;
+  width: 100%;
+}
+
+/* Movie Page */
+.movie {
+  font-family: 'Roboto Slab';
+  color: white;
+  padding: 0 10%;
+}
+.movie .h1.title {
+  font-size: 2rem;
+}
+.movie div.poster {
+  width: 100%;
+  height: 50%;
+  background-image: linear-gradient(
+    135deg,
+    #3b4877 0%,
+    #51e08a 100%
+  );
+  margin: 1.5rem 0;
+  border-radius: 10px;
+}
+.description {
+  font-size: 0.93333rem;
+  font-weight: 300;
+  margin: 1rem 0;
+}
+.movie .btn {
+  width: 100%;
+  margin: 2rem;
 }
