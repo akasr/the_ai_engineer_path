@@ -1,17 +1,6 @@
-import { createClient } from '@supabase/supabase-js';
-import 'dotenv/config';
 import { splitDocument } from './services/splitDocument.js';
 import { createEmbeddings } from './services/createEmbeddings.js';
-
-const privateKey = process.env.SUPABASE_API_KEY;
-if (!privateKey) {
-  throw new Error('Supabase API key is not set in environment variables.');
-}
-const url = process.env.SUPABASE_URL;
-if (!url) {
-  throw new Error('Supabase URL is not set in environment variables.');
-}
-const supabase = createClient(url, privateKey);
+import supabase from './supabase.config.js';
 
 export async function storeDocument(document) {
   try {

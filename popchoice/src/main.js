@@ -1,6 +1,7 @@
 import '/components/StartPage.js';
 import '/components/PreferencePage.js';
 import '/components/MoviePage.js';
+import fetchMovie from './services/fetchMovie.js';
 
 window.state = {
   currentPage: 'start',
@@ -29,7 +30,7 @@ function handleStartEvent(event) {
   showPreferencePage();
 }
 
-function handleNextEvent(event) {
+async function handleNextEvent(event) {
   console.log(
     'Moving to next user:',
     window.state.currentUser,
@@ -39,12 +40,12 @@ function handleNextEvent(event) {
   if(window.state.currentPage === 'preference') {
     showPreferencePage();
   } else {
-    showMoviePage();
+    await showMoviePage();
   }
 }
 
-function handleMovieEvent(event) {
-  showMoviePage();
+async function handleMovieEvent(event) {
+  await showMoviePage();
 }
 
 function removeCurrentPage() {
@@ -56,11 +57,21 @@ function removeCurrentPage() {
   }
 }
 
-function showMoviePage() {
+async function showMoviePage() {
   removeCurrentPage();
+
+
+  const data = await fetchMovie(window.state.preferences, window.state.movies);
+
+  if (!data) {
+    console.error('No movie data received');
+    return;
+  }
 
   const moviePage = document.createElement('movie-page');
   document.body.appendChild(moviePage);
+  moviePage.querySelector('h1.title').textContent = data.title;
+  moviePage.querySelector('p.description').textContent = data.description;
 }
 
 function showPreferencePage() {
@@ -68,6 +79,7 @@ function showPreferencePage() {
 
   const preferencePage = document.createElement('preference-page');
   document.body.appendChild(preferencePage);
+
 
   updateUserTitle();
 }
