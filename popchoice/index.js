@@ -26,6 +26,8 @@ app.post('/api/movie', async (request, response) => {
     }
 
     const movieRecommendations = await movieAgent(preferences, movies, time);
+    const poster = await fetchMoviePoster(movieRecommendations.title);
+    movieRecommendations.poster = poster;
 
     // movieAgent returns a single movie object, not an array
     if (!movieRecommendations || !movieRecommendations.title) {

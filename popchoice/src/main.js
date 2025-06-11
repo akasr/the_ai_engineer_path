@@ -37,7 +37,7 @@ async function handleNextEvent(event) {
     'of',
     window.state.totalUsers
   );
-  if(window.state.currentPage === 'preference') {
+  if (window.state.currentPage === 'preference') {
     showPreferencePage();
   } else {
     await showMoviePage();
@@ -58,8 +58,11 @@ function removeCurrentPage() {
 }
 
 async function showMoviePage() {
-
-  const data = await fetchMovie(window.state.preferences, window.state.movies, window.state.time);
+  const data = await fetchMovie(
+    window.state.preferences,
+    window.state.movies,
+    window.state.time
+  );
 
   if (!data) {
     console.error('No movie data received');
@@ -72,6 +75,27 @@ async function showMoviePage() {
   document.body.appendChild(moviePage);
   moviePage.querySelector('h1.title').textContent = data.title;
   moviePage.querySelector('p.description').textContent = data.description;
+
+  // Log the data to see what properties are available
+  console.log('Movie data received:', data);
+
+  const posterContainer = moviePage.querySelector('div.poster');
+  console.log('Poster container found:', posterContainer);
+
+  if (!posterContainer) {
+    console.error('Poster container not found in movie page');
+    return;
+  }
+
+  // Only try to display poster if data.poster exists
+  if (data.poster) {
+    posterContainer.innerHTML = `
+      <img src="${data.poster}" alt="${data.title} Poster" style="width: 100%; height: auto;"/>
+    `;
+  } else {
+    console.log('No poster data available, keeping default styling');
+    // Keep the default gradient background from CSS
+  }
 }
 
 function showPreferencePage() {
@@ -79,7 +103,6 @@ function showPreferencePage() {
 
   const preferencePage = document.createElement('preference-page');
   document.body.appendChild(preferencePage);
-
 
   updateUserTitle();
 }
