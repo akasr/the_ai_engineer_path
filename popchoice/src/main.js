@@ -12,6 +12,32 @@ window.state = {
   movies: [],
 };
 
+// Security function to validate image URLs
+function isValidImageUrl(url) {
+  try {
+    const parsedUrl = new URL(url);
+    // Only allow HTTP/HTTPS protocols
+    if (!['http:', 'https:'].includes(parsedUrl.protocol)) {
+      return false;
+    }
+    // Basic check for image file extensions or known image hosts
+    const pathname = parsedUrl.pathname.toLowerCase();
+    const imageExtensions = ['.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg'];
+    const trustedHosts = [
+      'm.media-amazon.com',
+      'ia.media-imdb.com',
+      'image.tmdb.org',
+    ];
+
+    return (
+      imageExtensions.some(ext => pathname.includes(ext)) ||
+      trustedHosts.some(host => parsedUrl.hostname.includes(host))
+    );
+  } catch (e) {
+    return false;
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   const startPage = document.createElement('start-page');
   document.body.appendChild(startPage);
@@ -88,12 +114,22 @@ async function showMoviePage() {
   }
 
   // Only try to display poster if data.poster exists
-  if (data.poster) {
-    posterContainer.innerHTML = `
-      <img src="${data.poster}" alt="${data.title} Poster" style="width: 100%; height: auto;"/>
-    `;
+  if (data.poster && isValidImageUrl(data.poster)) {
+    const img = document.createElement('img');
+    img.src = data.poster;
+    img.alt = `${data.title} Poster`;
+    img.style.width = '100%';
+    img.style.height = 'auto';
+    img.onerror = function () {
+      console.log('Failed to load poster, keeping default styling');
+      this.remove();
+    };
+    posterContainer.innerHTML = '';
+    posterContainer.appendChild(img);
   } else {
-    console.log('No poster data available, keeping default styling');
+    console.log(
+      'No poster data available or invalid URL, keeping default styling'
+    );
     // Keep the default gradient background from CSS
   }
 }
