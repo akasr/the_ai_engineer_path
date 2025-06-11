@@ -9,6 +9,9 @@ Below are the solo projects completed as part of the course. Each project demons
 - **[Project 1: PollyGlot](./pollyglot/README.md)**  
   A web application that allows users to translate text into three languages - Russian, Hindi, and Japanese using AI-powered translation APIs.
 
+- **[Project 2: PopChoice](./popchoice/README.md)**  
+  A movie recommendation system that suggests movies based on user preferences and ratings, utilizing AI algorithms for personalized recommendations.
+
 ## License
 
 This repository is for educational purposes as part of the Scrimba AI Engineer Path.
