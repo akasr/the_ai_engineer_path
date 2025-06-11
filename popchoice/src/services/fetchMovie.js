@@ -1,11 +1,11 @@
-export default async function fetchMovie(preferences, movies) {
+export default async function fetchMovie(preferences, movies, time) {
   try {
     const response = await fetch('/api/movie', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ preferences, movies }),
+      body: JSON.stringify({ preferences, movies, time }),
     });
 
     if (!response.ok) {

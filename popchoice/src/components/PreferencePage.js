@@ -34,7 +34,7 @@ class PreferencePage extends BasePage {
       favorite: sanitizeInput(favorite),
       mood,
       genre,
-      island: sanitizeInput(island),
+      'alone on a island with a movie star': sanitizeInput(island),
     };
   }
 

@@ -58,15 +58,15 @@ function removeCurrentPage() {
 }
 
 async function showMoviePage() {
-  removeCurrentPage();
 
-
-  const data = await fetchMovie(window.state.preferences, window.state.movies);
+  const data = await fetchMovie(window.state.preferences, window.state.movies, window.state.time);
 
   if (!data) {
     console.error('No movie data received');
     return;
   }
+
+  removeCurrentPage();
 
   const moviePage = document.createElement('movie-page');
   document.body.appendChild(moviePage);
